@@ -1,0 +1,185 @@
+/*Header general*/
+.navbar-container {
+    display: flex;
+    padding: 5px  0.5rem 1rem 0.5rem;
+    background-color: #ddd;
+    width: 100%;
+
+}
+
+.inner-navbar-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.top-inner-navbar-container, .bottom-inner-navbar-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;    
+        padding: 3px 0;
+}
+
+.search-bar-container, .options-container {
+    flex: 2;
+}
+
+.div-logo-container {
+    margin-left: 1rem;
+    height: 80px;
+    width: 90px;
+}
+
+.div-logo-container img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.search-bar-container {
+    display: flex;
+    /*flex-direction: row;*/
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-left: 0.5rem;
+    flex: 2;
+}
+/*Componentes de la barra de búsqueda*/
+.search-input {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #0000007b;
+    outline: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    
+}
+
+.search-input:focus {
+    border-color: #000;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/*Componentes del botón*/
+.search-btn {
+    flex: 1;
+    height: 60px;
+    max-width: 30px;
+    margin-left: -10px;
+}
+
+.search-btn button {
+    display: flex;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #0000007b;
+    transition: color 0.2s ease;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-btn button:hover {
+    color: #3042e7;
+    transition: color 0.2s ease;
+}
+
+/*Componente de anuncio*/
+.ad-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgb(47, 50, 255), rgb(19, 0, 128));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-right: 1rem;
+}
+
+/*Componente de ubicación*/
+.location-container {
+    display: flex;
+    margin-top: -15px;
+    font-size: 10px;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgb(19, 0, 128), rgb(47, 50, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-right: 1rem;
+}
+
+/*Componentes de la barra de opciones de la tienda*/
+.options-container {
+    padding-top: 5px;
+    padding-left: 0.5rem;
+    align-items: center;
+    justify-content: start;
+    max-height: 35px;
+    margin: -15px 30px 0 -5px;
+    max-width: 1vr;
+
+}
+.options-container ul, .user-options-container ul{
+    align-items: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.options-container ul li, .user-options-container ul li {
+    list-style: none;
+}
+
+.options-container ul li a, .user-options-container ul li a{
+    font-weight: 400;
+    color: #333;
+    text-decoration: none;
+}
+
+.options {
+  appearance: none;
+  padding: 0.2rem 1rem 0.2rem 0.5rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: #333;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.options:hover {
+  border-color: #999;
+}
+
+.options:focus {
+  outline: none;
+  border-color: #2f32ff;
+  box-shadow: 0 0 0 2px rgba(47, 50, 255, 0.15);
+}
+
+/*Componentes de las opciones del usuario*/
+.user-options-container {
+
+    padding-top: 11px;
+    padding-right: 0.5rem;
+    margin: -15px 30px 0 -5px;
+}
