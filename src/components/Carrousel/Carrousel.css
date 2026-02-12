@@ -1,0 +1,112 @@
+.carrousel-main-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+}
+
+.inner-carrousel {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+/*
+.carrousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}*/
+
+.carrousel-item {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.5s ease;
+    /*transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;*/
+}
+
+.carrousel-item.enter-from-right {
+    transform: translateX(100%);
+}
+
+.carrousel-item.enter-from-left {
+    transform: translateX(-100%);
+}
+
+.carrousel-item.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 2;
+}
+
+.carrousel-item.exit-left {
+  opacity: 0;
+  transform: translateX(-100%);
+  z-index: 1;
+}
+
+.carrousel-item.exit-right {
+  opacity: 0;
+  transform: translateX(100%);
+  z-index: 1;
+}
+
+.carrousel-item.active img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carrousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #ffffffc0;
+}
+
+#carrousel-control-prev,  #carrousel-control-next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    width: 60px;
+    z-index: 10;
+
+}
+
+#carrousel-control-prev i,
+#carrousel-control-next i {
+    font-size: 2rem;
+    color: white;
+    transition: text-shadow 0.3s ease;
+}
+#carrousel-control-prev {
+    left: 0;
+
+}
+#carrousel-control-next {
+    right: 0;
+}
+
+#carrousel-control-prev:hover,
+#carrousel-control-next:hover {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.25);
+}
+
+#carrousel-control-prev:hover i,
+#carrousel-control-next:hover i {
+    text-shadow:
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.6),
+        0 0 20px rgba(255, 255, 255, 0.4);
+}
+
