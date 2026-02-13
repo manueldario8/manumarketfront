@@ -8,124 +8,159 @@ type Slide = {
     image: string;
     title: string;
     description: string;
-    linkText: string;
+    link: string;
 };
 
-type Direction = "prev" | "next";
-const AUTOPLAY_DELAY = 3000;
-
 const Carrousel = () => {
-
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [prevIndex, setPrevIndex] = useState<number | null>(null);
-    const [direction, setDirection] = useState<Direction>("next");
 
     const slides: Slide[] = [
         {
             image: fondo1,
             title: "Ofertas de verano",
             description: "Conoce nuestras imperdibles ofertas.",
-            linkText: "Conocer más",
+            link: "#",
         },
         {
             image: fondo2,
             title: "Envío gratis en tu primera compra",
             description: "En tu primera compra te llevamos tu pedido gratis",
-            linkText: "Quiero pedir",
+            link: "#",
         },
         {
             image: fondo3,
             title: "Novedades",
             description: "Descubre los últimos ingresos",
-            linkText: "Ver nuevos productos",
-        }];
+            link: "#",
+        }
+    ];
+
+    const extendedSlides = [
+        slides[slides.length - 1],
+        ...slides,
+        slides[0],
+    ];
+
+    const [index, setIndex] = useState(1);
+    const [isAnimating, setIsAnimating] = useState(true);
 
     const goNext = () => {
-        stopAutoplay();
-        setPrevIndex(currentIndex);
-        setDirection("next");
-        setCurrentIndex((prev) => (prev + 1) % slides.length);
-        startAutoplay();
+        setIsAnimating(true);
+        setIndex(i => i + 1);
     };
 
     const goPrev = () => {
-        stopAutoplay();
-        setPrevIndex(currentIndex);
-        setDirection("prev");
-        setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
-        startAutoplay();
+        setIsAnimating(true);
+        setIndex(i => i - 1);
     };
 
-    const intervalRef = useRef<number | null>(null);
+    const handleTransitionEnd = () => {
+        if (index === extendedSlides.length - 1) {
+            setIsAnimating(false);
+            setIndex(1);
+        }
+
+        if (index === 0) {
+            setIsAnimating(false);
+            setIndex(extendedSlides.length - 2);
+        }
+    };
+
+    const autoplayRef = useRef<number | null>(null);
+
     const startAutoplay = () => {
         stopAutoplay();
-        intervalRef.current = window.setInterval(() => {
-            goNext();
-        },AUTOPLAY_DELAY);
+        autoplayRef.current = window.setInterval(() => {
+            setIsAnimating(true);
+            setIndex(i => i + 1);
+        }, 3000);
     };
 
     const stopAutoplay = () => {
-        if (intervalRef.current !== null) {
-            clearInterval(intervalRef.current);
-            intervalRef.current = null;
+        if (autoplayRef.current !== null) {
+            clearInterval(autoplayRef.current);
+            autoplayRef.current = null;
         }
     };
 
     useEffect(() => {
         startAutoplay();
-        return ()=> stopAutoplay();
-    },[]);
+        return () => stopAutoplay();
+    }, []);
 
+    useEffect(() => {
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                stopAutoplay();
+            } else {
+                startAutoplay();
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
+        return () => {
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (index < 0 || index > extendedSlides.length - 1) {
+            setIsAnimating(false);
+            setIndex(1);
+        }
+    }, [index]);
 
 
     return (
-        <>
-            <div className="carrousel-main-container">
-                <button id="carrousel-control-prev" type="button" onClick={goPrev}>
-                    <span className="visually-hidden"><i className="fa-solid fa-angle-left"></i></span>
-                </button>
-                <div className="inner-carrousel">
+        <div className="carrousel-main-container">
 
-                    {slides.map((slide, index) => {
-                        let className = "carrousel-item";
+            <button id="carrousel-control-prev" type="button" onClick={() => {
+                stopAutoplay();
+                goPrev();
+                startAutoplay();
+            }}>
+                <i className="fa-solid fa-angle-left"></i>
+            </button>
 
-                        if (index === currentIndex) {
-                            className += " active";
-                        }
-                        else if (index === prevIndex) {
-                            className += direction === "next" ? " exit-left" : " exit-right";
-                        }
-                        else {
-                            className += direction === "next"
-                                ? " enter-from-right"
-                                : " enter-from-left";
-                        }
-                        return (
-                            <div
-                                key={index}
-                                className={className}
-                            >
-                                <img src={slide.image} alt={slide.title} />
-
-                                <div className="panel-container">
-                                    <div className="carrousel-caption">
-                                        <h1>{slide.title}</h1>
-                                        <p>{slide.description}</p>
-                                        <p><a href="#">{slide.linkText}</a></p>
-                                    </div>
+            <div className="viewport">
+                <div
+                    className="track"
+                    style={{
+                        transform: `translateX(-${index * 100}%)`,
+                        transition: isAnimating
+                            ? 'transform 600ms ease-in-out'
+                            : 'none'
+                    }}
+                    onTransitionEnd={handleTransitionEnd}
+                >
+                    {extendedSlides.map((slide, i) => (
+                        <a href={slide.link} className="slide" key={i}
+  >
+                            <img src={slide.image} alt={slide.title} />
+                            {/*<div className="panel-container">
+                                <div className="carrousel-caption">
+                                    <h1>{slide.title}</h1>
+                                    <p>{slide.description}</p>
+                                    <p>
+                                        <a href="#">{slide.linkText}</a>
+                                    </p>
                                 </div>
-                            </div>
-                        )
-                    })}
-
+                            </div>*/}
+                        </a>
+                    ))}
                 </div>
-
-                <button id="carrousel-control-next" type="button" onClick={goNext}>
-                    <span className="visually-hidden"><i className="fa-solid fa-angle-right"></i></span>
-                </button>
             </div>
-        </>
-    )
-}
 
-export default Carrousel
+            <button id="carrousel-control-next" type="button" onClick={() => {
+                stopAutoplay();
+                goNext();
+                startAutoplay()
+            }}>
+                <i className="fa-solid fa-angle-right"></i>
+            </button>
+
+        </div>
+    );
+};
+
+export default Carrousel;
