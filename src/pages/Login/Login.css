@@ -1,0 +1,60 @@
+* {
+    font-family: 'Poppins';
+}
+
+.login-main-container {
+    display: flex;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+    background-color: #d3d3d3;
+    
+}
+
+.sub-main {
+    display: flex;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 3rem;
+    background-color: #dddddd;
+    box-shadow: 0 0 15px rgba(0,0,0,.5);
+    margin-top: 1rem;
+
+}
+
+.icon-container {
+    padding: 1rem;
+    height: 5rem;
+    font-size: 36px;
+}
+
+.sub-main h1 {
+    font-size: 36px;
+}
+
+.sub-main .my-form-floating {
+    display: flex;
+    justify-content: flex-start;
+    padding: .5rem;
+    margin-top: 0.2rem;
+}
+
+.sub-main .my-form-floating label {
+    margin-left: 10px;
+}
+.register {
+    display: flex;
+    padding: 0.5rem;
+    margin-top: 0.2rem;
+    justify-content: space-between;
+    
+}
+
+
+.sub-main button {
+    margin-top: 1rem;
+    border: none; 
+    background-color: #dddddd;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);   
+}

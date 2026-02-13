@@ -47,8 +47,8 @@ const Navbar = () => {
                 </section>
                 <section className='user-options-container'>
                     <ul>
-                        <li><a href="">Ingresar</a></li>
-                        <li><a href="">Crear cuenta</a></li>
+                        <li><a href="/login">Ingresar</a></li>
+                        <li><a href="/login">Crear cuenta</a></li>
                         <li><a href="">Mis compras</a></li>
                         <li><a href=""><i className='fas fa-shopping-cart'></i></a></li>
                     </ul>
