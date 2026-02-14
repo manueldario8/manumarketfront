@@ -1,60 +1,113 @@
-* {
-    font-family: 'Poppins';
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
 }
 
 .login-main-container {
     display: flex;
-    height: 500px;
+    height: 600px;
+    width: 400px;
     align-items: center;
     justify-content: center;
-    background-color: #d3d3d3;
-    
 }
 
 .sub-main {
     display: flex;
-    border: 1px solid rgb(255, 255, 255);
     border-radius: 20px;
-    padding: 3rem;
-    background-color: #dddddd;
-    box-shadow: 0 0 15px rgba(0,0,0,.5);
+    box-shadow: 0 0 15px rgba(0,0,0,.3);
+    flex-direction: column;
+}
+.sub-main a img{
     margin-top: 1rem;
-
+    width: 140px;
+    height: 110px;
 }
 
-.icon-container {
-    padding: 1rem;
-    height: 5rem;
-    font-size: 36px;
+.sub-main h3 {
+    margin: 5px 0 0 0;
 }
-
-.sub-main h1 {
-    font-size: 36px;
-}
-
 .sub-main .my-form-floating {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
     padding: .5rem;
     margin-top: 0.2rem;
+    align-items: center;
 }
 
 .sub-main .my-form-floating label {
-    margin-left: 10px;
+    margin: 5px 0px 8px 0px;
 }
-.register {
-    display: flex;
-    padding: 0.5rem;
-    margin-top: 0.2rem;
-    justify-content: space-between;
-    
+
+.my-form-floating input {
+    margin-top: 5px;
+    border: 1px gray solid;
+    box-shadow: 0 0 15px rgba(72, 87, 223, 0.4);
+    width: 290px;
+    height: 36px;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.my-form-floating input:hover {
+
+    border: 1px gray solid;
+    box-shadow: 0 0 15px rgba(26, 38, 255, 0.6);
+
+}
+
+.my-form-floating input:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(26, 38, 255, 0.6);
+}
+
+.verify {
+
+    margin: 5px 0 5px 0;
+
+}
+
+.verify a {
+    margin-left: 5px;
+}
+.verify label {
+    margin-right: 5px;
 }
 
 
 .sub-main button {
     margin-top: 1rem;
     border: none; 
-    background-color: #dddddd;
+    background-color: #e4d831;
     padding: 10px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);   
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
 }
+
+.sub-main button:hover {
+    background-color: #e9da04;
+}
+
+.adviser {
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px 4px 15px;
+    
+}
+
+a {
+    color: rgb(59, 62, 251);
+}
+a:visited {
+    color: rgb(59, 62, 251);
+}
+
+.copyright {
+    margin: 10px 0 15px 0;
+}
+
