@@ -1,29 +1,35 @@
 import "./Login.css";
-import Logo from "../../assets/logoapp.jpg"
+import Logo from "../../assets/logoapp.jpg";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
+
+    const handleSubmit = () => {
+    navigate("/pass");
+  };
+
     return (
         <>
-            <main className="login-main-container">
-                <div className="sub-main">
-                    <form>
+                <div className="sub-main">  
                         <a href="/" className="icon-container"><img src={Logo} alt="logo" /></a>
                         <h3>Inicia sesión o crea una cuenta</h3>
-                        <section className="my-form-floating">
+                        <form onSubmit={handleSubmit} className="my-form-floating ">
+                        <section className="form-dt">
                             <label htmlFor="floatingInput">Introduce el correo electrónico</label>
-                            <input type="email" className="form-control" id="floatingInput" placeholder="Correo" />
-                            <button className="goToIdentify">Continuar</button>
-                        </section>
+                            <input type="email" className="form-control" id="floatingInput" placeholder="Correo" required/>
+                        </section>    
+                            <button type="submit">Continuar</button>
                         <section className="adviser">
                             <p>Al continuar, aceptas las <a href="/conditions">Condiciones de uso</a> y el <a href="/privacy">Aviso de privacidad</a> de este sitio</p>
                             <br />
                             <a href="#">¿Necesitas ayuda?</a>
                         </section>
-                        <a className="registerLink" href="">Registrarme</a>
+                        <Link to="/nuevousuario" className="link">Registrarme</Link>
                         <p className="copyright">© 2025–2026</p>
                     </form>
                 </div>
-            </main>
+
         </>
     )
 }

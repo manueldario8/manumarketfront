@@ -7,6 +7,8 @@ import MainLayout from './components/Layout/MainLayout';
 import UserNotFound from './pages/Login/UserNotFound';
 import UseConditions from './pages/Advisers/UseConditions';
 import Privacy  from './pages/Advisers/Privacy';
+import RegisterUser from './pages/Login/RegisterUser';
+import PassPage from './pages/Login/PassPage';
 
 function App() {
 
@@ -20,7 +22,9 @@ function App() {
           <Route path="/login" element={<Login />} />  
           <Route path="/fail-login" element={<UserNotFound/>} />       
           <Route path="/privacy" element={<Privacy/>} /> 
-          <Route path="/conditions" element={<UseConditions/>} />    
+          <Route path="/conditions" element={<UseConditions/>} />   
+          <Route path="/nuevousuario" element={<RegisterUser/>} />
+          <Route path="/pass" element={<PassPage/>} />    
         </Routes>
       </Router>
     </>

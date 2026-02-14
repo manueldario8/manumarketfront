@@ -6,29 +6,22 @@ body {
   align-items: start;
 }
 
-.login-main-container {
-    display: flex;
-    height: 600px;
-    width: 400px;
-    align-items: center;
-    justify-content: center;
-}
-
 .sub-main {
     display: flex;
     border-radius: 20px;
     box-shadow: 0 0 15px rgba(0,0,0,.3);
     flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    width: 400px;
+    padding-bottom: 1rem;
 }
-.sub-main a img{
+img{
     margin-top: 1rem;
     width: 140px;
     height: 110px;
 }
 
-.sub-main h3 {
-    margin: 5px 0 0 0;
-}
 .sub-main .my-form-floating {
     display: flex;
     flex-direction: column;
@@ -38,7 +31,7 @@ body {
 }
 
 .sub-main .my-form-floating label {
-    margin: 5px 0px 8px 0px;
+    margin-top: 10px;
 }
 
 .my-form-floating input {
@@ -52,10 +45,8 @@ body {
 }
 
 .my-form-floating input:hover {
-
     border: 1px gray solid;
     box-shadow: 0 0 15px rgba(26, 38, 255, 0.6);
-
 }
 
 .my-form-floating input:focus {
@@ -63,21 +54,7 @@ body {
     box-shadow: 0 0 15px rgba(26, 38, 255, 0.6);
 }
 
-.verify {
-
-    margin: 5px 0 5px 0;
-
-}
-
-.verify a {
-    margin-left: 5px;
-}
-.verify label {
-    margin-right: 5px;
-}
-
-
-.sub-main button {
+button {
     margin-top: 1rem;
     border: none; 
     background-color: #e4d831;
@@ -96,8 +73,7 @@ body {
 .adviser {
     display: flex;
     flex-direction: column;
-    margin: 0 15px 4px 15px;
-    
+    margin: 10px 15px; 
 }
 
 a {
@@ -108,6 +84,37 @@ a:visited {
 }
 
 .copyright {
-    margin: 10px 0 15px 0;
+    margin-top: 15px;
 }
+
+/*StartLogin*/
+.inner-sec-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5px 5px 5px;
+}
+
+.form-dt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.info-inputs .form-dt label{
+    margin-bottom: -2px;
+    font-weight: 400;
+}
+
+.ad-icon i{
+    color: rgb(72, 72, 255);
+
+}
+
+.ad-icon label{
+    margin-top: 15px;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
 
