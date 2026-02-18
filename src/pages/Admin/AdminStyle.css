@@ -6,7 +6,7 @@ body {
   align-items: start;
 }
 
-.sub-main {
+.form-container {
     display: flex;
     border-radius: 20px;
     box-shadow: 0 0 15px rgba(0,0,0,.3);
@@ -14,15 +14,10 @@ body {
     align-items: center;
     margin-top: 60px;
     width: 400px;
-    padding-bottom: 1rem;
-}
-.sub-main img{
-    margin-top: 1rem;
-    width: 140px;
-    height: 110px;
+    padding: 1rem;
 }
 
-.sub-main .my-form-floating {
+.form-container form {
     display: flex;
     flex-direction: column;
     padding: .5rem;
@@ -30,11 +25,17 @@ body {
     align-items: center;
 }
 
-.sub-main .my-form-floating label {
+.form-container form .form-data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-data label {
     margin-top: 10px;
 }
 
-.my-form-floating input {
+.form-data input {
     margin-top: 5px;
     border: 1px gray solid;
     box-shadow: 0 0 15px rgba(72, 87, 223, 0.4);
@@ -44,17 +45,28 @@ body {
     border-radius: 5px;
 }
 
-.my-form-floating input:hover {
+.form-data input:hover {
     border: 1px gray solid;
     box-shadow: 0 0 15px rgba(26, 38, 255, 0.6);
 }
 
-.my-form-floating input:focus {
+.form-data input:focus {
     outline: none;
     box-shadow: 0 0 15px rgba(26, 38, 255, 0.6);
 }
 
-.sub-main button {
+.form-data select {
+    margin-top: 5px;
+    border: 1px gray solid;
+    box-shadow: 0 0 15px rgba(72, 87, 223, 0.4);
+    width: 290px;
+    height: 36px;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+
+.form-container button {
     margin-top: 1rem;
     border: none; 
     background-color: #e4d831;
@@ -69,52 +81,3 @@ body {
 .sub-main button:hover {
     background-color: #e9da04;
 }
-
-.adviser {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 15px; 
-}
-
-a {
-    color: rgb(59, 62, 251);
-}
-a:visited {
-    color: rgb(59, 62, 251);
-}
-
-.copyright {
-    margin-top: 15px;
-}
-
-/*StartLogin*/
-.inner-sec-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 5px 5px 5px;
-}
-
-.form-dt {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.info-inputs .form-dt label{
-    margin-bottom: -2px;
-    font-weight: 400;
-}
-
-.ad-icon i{
-    color: rgb(72, 72, 255);
-
-}
-
-.ad-icon label{
-    margin-top: 15px;
-    margin-left: 5px;
-    font-size: 14px;
-}
-
-
