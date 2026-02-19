@@ -177,7 +177,7 @@ const ProductCreate = () => {
           />
         </section>
 
-        <button type='submit'>Crear producto</button>
+        <button type='submit' className='submit-button'>Crear producto</button>
       </form>
 
       {message && <p>{message}</p>}

@@ -5,9 +5,16 @@ import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
     const navigate = useNavigate();
 
-    const handleSubmit = () => {
-    navigate("/pass");
+    const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+
+    navigate("/pass", {state: {email}});
   };
+
+    
 
     return (
         <>
@@ -17,7 +24,7 @@ const Login = () => {
                         <form onSubmit={handleSubmit} className="my-form-floating ">
                         <section className="form-dt">
                             <label htmlFor="floatingInput">Introduce el correo electrónico</label>
-                            <input type="email" className="form-control" id="floatingInput" placeholder="Correo" required/>
+                            <input type="email" name="" className="form-control" placeholder="Correo" required/>
                         </section>    
                             <button type="submit">Continuar</button>
                         <section className="adviser">

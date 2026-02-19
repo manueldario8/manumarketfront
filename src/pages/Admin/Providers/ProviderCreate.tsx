@@ -54,7 +54,7 @@ const ProviderCreate = () => {
                         <input type="text" value={providerCode} onChange={(e) => setProviderCode(e.target.value)} placeholder='Código del proveedor' required />
                     </section>
 
-                    <button type='submit'>Crear producto</button>
+                    <button type='submit' className='submit-button'>Crear producto</button>
                     {message && <p>{message}</p>}
                 </form>
             </div>

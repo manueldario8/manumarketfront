@@ -44,7 +44,7 @@ const CategoryCreate = () => {
           <input type="text" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} placeholder='Categoría' required />
         </section>
 
-        <button type="submit">Crear categoría</button>
+        <button type="submit" className='submit-button'>Crear categoría</button>
       </form>
       {message && <p>{message}</p>}
     </div>

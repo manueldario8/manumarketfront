@@ -66,7 +66,7 @@ body {
 }
 
 
-.form-container button {
+.form-container .submit-button {
     margin-top: 1rem;
     border: none; 
     background-color: #e4d831;
@@ -78,6 +78,6 @@ body {
     cursor: pointer;
 }
 
-.sub-main button:hover {
+.sub-main .submit-button:hover {
     background-color: #e9da04;
 }

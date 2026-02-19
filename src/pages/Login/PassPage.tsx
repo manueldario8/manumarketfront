@@ -1,12 +1,21 @@
 import "./Login.css";
 import Logo from "../../assets/logoapp.jpg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const PassPage = () => {
+
+    const location = useLocation();
+    const email = location.state?.email;
     const navigate = useNavigate();
-    const handleSubmit = () => {
+    const handleSubmit = (e: any) => {
+        e.preventDefault();
+
+        const form = e.currentTarget;
+        const password = (form.elements.namedItem("password") as HTMLFormElement);
+
         navigate("/");
-    }
+
+    };
     return (
         <>
             <div className="sub-main">
@@ -14,8 +23,9 @@ const PassPage = () => {
                 <form onSubmit={handleSubmit}>
                     <section className="my-form-floating">
                         <section className="form-dt">
+                        <p>{email}</p>
                         <label htmlFor="floatingInput">Contraseña</label>
-                        <input type="text" className="form-control" id="floatingInput" placeholder="Contraseña" required /></section>
+                        <input type="password" name="password" className="form-control" placeholder="Contraseña" required /></section>
                         <button type="submit">Iniciar sesión</button>
                     </section>
                     <Link to="/nuevousuario" className="link">Registrarme</Link>

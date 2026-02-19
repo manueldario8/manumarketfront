@@ -54,7 +54,7 @@ body {
     box-shadow: 0 0 15px rgba(26, 38, 255, 0.6);
 }
 
-.sub-main button {
+.sub-main .submit-button {
     margin-top: 1rem;
     border: none; 
     background-color: #e4d831;
@@ -66,8 +66,15 @@ body {
     cursor: pointer;
 }
 
-.sub-main button:hover {
+.sub-main .submit-button:hover {
     background-color: #e9da04;
+}
+
+.edit-btn {
+    color: rgb(59, 62, 251);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .adviser {
