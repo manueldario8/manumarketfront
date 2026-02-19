@@ -1,14 +1,15 @@
-import { useState } from 'react';
 import '../AdminStyle.css';
+import { useState } from 'react';
 
-const CategoryCreate: React.FC = () => {
+
+const CategoryCreate = () => {
   const [categoryName, setCategoryName] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    if (!categoryName.trim()) return; // no enviar si está vacío
+    if (!categoryName.trim()) return;
 
     const data = { name: categoryName };
 
@@ -23,7 +24,7 @@ const CategoryCreate: React.FC = () => {
 
       if (response.ok) {
         setMessage('Categoría creada correctamente');
-        setCategoryName(''); // limpiar input
+        setCategoryName('');
       } else {
         const errorData = await response.json();
         setMessage(`Error: ${errorData.message || 'No se pudo crear'}`);
@@ -40,9 +41,9 @@ const CategoryCreate: React.FC = () => {
       <form onSubmit={handleSubmit}>
         <section className="form-data">
           <label>Categoría</label>
-          <input type="text" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} required/>
+          <input type="text" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} placeholder='Categoría' required />
         </section>
-        
+
         <button type="submit">Crear categoría</button>
       </form>
       {message && <p>{message}</p>}
